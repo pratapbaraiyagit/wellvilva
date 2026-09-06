@@ -1,0 +1,87 @@
+.legalPage {
+  padding-top: 100px;
+  background-color: var(--color-background);
+  min-height: 100vh;
+}
+
+.heroSection {
+  padding: 6rem 0 4rem;
+  text-align: center;
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.lastUpdated {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.contentSection {
+  padding: 5rem 0;
+}
+
+.contentContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.article {
+  max-width: 800px;
+  width: 100%;
+}
+
+.contentBlock {
+  margin-bottom: 3rem;
+}
+
+.contentBlock h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  padding-bottom: 0.5rem;
+}
+
+.contentBlock p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(31, 41, 55, 0.85); /* Slightly muted text for reading */
+  margin-bottom: 1.5rem;
+}
+
+.contentBlock ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.contentBlock li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: rgba(31, 41, 55, 0.85);
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 4rem 0 3rem;
+  }
+  
+  .contentSection {
+    padding: 3rem 0;
+  }
+  
+  .contentBlock h2 {
+    font-size: 1.75rem;
+  }
+}
