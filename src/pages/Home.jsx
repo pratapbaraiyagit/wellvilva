@@ -173,12 +173,32 @@ const Home = () => {
       <ProductSection title="New Products" products={newProducts} />
       <ProductSection title="Most Purchased" products={mostPurchasedProducts} />
       
+      {/* CTA Section */}
+      <section className={styles.interstitial}>
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className={styles.interstitialTitle} style={{marginBottom: '2.5rem'}}>
+              Ready to transform your wellness journey naturally?
+            </h2>
+            <div style={{display: 'flex', gap: '1rem', justifyContent: 'center'}}>
+              <Link to="/shop" className="btn btn-primary" style={{backgroundColor: 'white', color: 'var(--color-primary)', textDecoration: 'none'}}>Explore Collection</Link>
+              <Link to="/affiliate" className="btn btn-outline" style={{borderColor: 'white', color: 'white', textDecoration: 'none'}}>Become a Partner</Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+      
     </div>
   );
 };
 
 const ProductSection = ({ title, products }) => (
-  <section className={`section ${styles.productSection}`}>
+  <section className={styles.productSection}>
     <div className="container">
       <div className={styles.sectionHeader}>
         <h2 className="section-title" style={{textAlign: 'left', marginBottom: '3rem'}}>{title}</h2>
