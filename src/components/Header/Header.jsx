@@ -75,7 +75,7 @@ const Header = () => {
           >
             <div className={styles.mobileHeader}>
               <Link to="/" className={styles.logo} onClick={() => setMobileMenuOpen(false)}>
-                <span className={styles.logoText}>WELLVIVA</span>
+                <img src="/logo.png" alt="Wellviva Organics" className={styles.logoImg} />
               </Link>
               <button 
                 className={styles.closeBtn} 
@@ -86,13 +86,11 @@ const Header = () => {
             </div>
             
             <nav className={styles.mobileNav}>
-              {navLinks.map((link) => (
-                <Link key={link.name} to={link.path} className={styles.mobileNavLink}>
-                  {link.name}
-                </Link>
-              ))}
-              <Link to="/cart" className={styles.mobileNavLink}>Cart</Link>
-              <button className={styles.mobileNavLink}>Login</button>
+              <Link to="/shop" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Shop</Link>
+              <Link to="/about" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>About</Link>
+              <Link to="/contact" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Contact</Link>
+              <Link to="/cart" className={styles.mobileNavLink} onClick={() => setMobileMenuOpen(false)}>Cart</Link>
+              <Link to="/login" className={styles.mobileLoginBtn} onClick={() => setMobileMenuOpen(false)}>Login</Link>
             </nav>
           </motion.div>
         )}

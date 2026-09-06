@@ -1,11 +1,11 @@
 .header {
   position: fixed;
   top: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   z-index: 100;
-  width: 90%;
-  max-width: 1200px;
   transition: all var(--transition-slow);
 }
 
@@ -24,6 +24,8 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: all var(--transition-slow);
   position: relative;
+  width: 90%;
+  max-width: 1200px;
 }
 
 .header.scrolled .headerContainer {
@@ -88,8 +90,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--color-background);
-  z-index: 200;
+  background-color: #FFFFFF; /* Force solid white so nothing bleeds through */
+  z-index: 9999; /* Ensure it stays on top of absolutely everything */
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -117,11 +119,23 @@
   font-family: var(--font-serif);
   font-size: 3rem;
   color: var(--color-text);
+  text-decoration: none;
+}
+
+.mobileLoginBtn {
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+  border: 1px solid var(--color-primary);
+  border-radius: 999px;
+  padding: 0.75rem 2.5rem;
+  margin-top: 1rem;
 }
 
 @media (max-width: 768px) {
   .header {
-    width: calc(100% - 2rem);
     top: 1rem;
   }
   
