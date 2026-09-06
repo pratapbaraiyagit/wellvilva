@@ -66,17 +66,22 @@ const Home = () => {
           style={{ y: y1, opacity }}
         >
           {slides.map((slide, index) => (
-            <div 
+            <motion.div
               key={index}
               className={styles.heroBackgroundImage}
+              initial={{ opacity: 0, scale: 1.1 }}
+              animate={{ 
+                opacity: index === currentSlide ? 1 : 0,
+                scale: index === currentSlide ? 1 : 1.1
+              }}
+              transition={{ duration: 1.5, ease: [0.25, 1, 0.5, 1] }}
               style={{
                 backgroundImage: `url(${slide.image})`,
-                opacity: index === currentSlide ? 1 : 0,
-                transition: 'opacity 1s ease-in-out'
+                zIndex: index === currentSlide ? 1 : 0
               }}
             >
               <div className={styles.heroOverlay}></div>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
         
@@ -85,22 +90,37 @@ const Home = () => {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.8, ease: [0.25, 1, 0.5, 1] }}
+                initial={{ opacity: 0, y: 30, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                exit={{ opacity: 0, y: -30, filter: 'blur(10px)' }}
+                transition={{ duration: 1, ease: [0.25, 1, 0.5, 1] }}
                 className={styles.slideContent}
               >
-                <h1 className={styles.heroTitle}>
+                <motion.h1 
+                  className={styles.heroTitle}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 1, 0.5, 1] }}
+                >
                   {slides[currentSlide].title}
-                </h1>
-                <p className={styles.heroText}>
+                </motion.h1>
+                <motion.p 
+                  className={styles.heroText}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 1, 0.5, 1] }}
+                >
                   {slides[currentSlide].subtitle}
-                </p>
-                <div className={styles.heroActions}>
-                  <Link to="/shop" className="btn btn-primary" style={{display: 'inline-block', backgroundColor: 'white', color: 'var(--color-text)', borderRadius: '999px', padding: '1rem 2.5rem', border: 'none', textDecoration: 'none'}}>Shop Now</Link>
-                  <Link to="/about" className="btn btn-outline" style={{display: 'inline-block', borderColor: 'white', color: 'white', borderRadius: '999px', padding: '1rem 2.5rem', backgroundColor: 'transparent', textDecoration: 'none'}}>Learn More</Link>
-                </div>
+                </motion.p>
+                <motion.div 
+                  className={styles.heroActions}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.6, ease: [0.25, 1, 0.5, 1] }}
+                >
+                  <Link to="/shop" className="btn btn-primary" style={{backgroundColor: 'white', color: 'var(--color-primary)'}}>Shop Now</Link>
+                  <Link to="/about" className="btn btn-outline" style={{borderColor: 'white', color: 'white'}}>Learn More</Link>
+                </motion.div>
               </motion.div>
             </AnimatePresence>
             
