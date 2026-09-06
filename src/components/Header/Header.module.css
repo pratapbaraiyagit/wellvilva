@@ -1,0 +1,146 @@
+.header {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: 90%;
+  max-width: 1200px;
+  transition: all var(--transition-slow);
+}
+
+.header.scrolled {
+  top: 1rem;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  background: #FFFFFF;
+  border-radius: 999px;
+  padding: 0 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: all var(--transition-slow);
+  position: relative;
+}
+
+.header.scrolled .headerContainer {
+  padding: 0.75rem 2rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-hover);
+}
+
+.desktopNavLeft {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.desktopNavRight {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: flex-end;
+}
+
+.navLink {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+  letter-spacing: 0.05em;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  z-index: 100;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logoImg {
+  height: 40px; /* Adjust based on exact proportion */
+  width: auto;
+  object-fit: contain;
+}
+
+.actionsRight {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.mobileMenuBtn {
+  display: none;
+}
+
+/* Mobile Menu Overlay */
+.mobileOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-background);
+  z-index: 200;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4rem;
+}
+
+.closeBtn {
+  color: var(--color-text);
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.mobileNavLink {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .header {
+    width: calc(100% - 2rem);
+    top: 1rem;
+  }
+  
+  .headerContainer {
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+  }
+  
+  .desktopNavLeft, .desktopNavRight {
+    display: none;
+  }
+  
+  .logo {
+    justify-content: flex-start;
+  }
+  
+  .mobileMenuBtn {
+    display: block;
+    color: var(--color-text);
+  }
+}

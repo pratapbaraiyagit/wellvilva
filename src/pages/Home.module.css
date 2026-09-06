@@ -1,0 +1,221 @@
+.home {
+  width: 100%;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: #2D3A31; /* Darker fallback for images */
+}
+
+.heroBackgroundWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%; /* Extra height for parallax */
+  z-index: 1;
+}
+
+.heroBackgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Dark overlay to make text pop */
+}
+
+.heroContainer {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.heroContent {
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+  position: relative;
+}
+
+.slideContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.heroTitle {
+  font-family: var(--font-sans);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.heroText {
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 3rem;
+  max-width: 600px;
+  line-height: 1.6;
+  text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+}
+
+.heroActions {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.sliderDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  right: 0;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.activeDot {
+  background-color: white;
+  transform: scale(1.2);
+}
+
+/* Bento Stats Section */
+.bentoSection {
+  padding: 6rem 0;
+  background-color: var(--color-surface);
+}
+
+.bentoGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.bentoCard {
+  background-color: var(--color-background);
+  padding: 3rem 1.5rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.bentoDark {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+.bentoNumber {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+
+.bentoDark .bentoNumber {
+  color: white;
+}
+
+.bentoLabel {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.bentoDark .bentoLabel {
+  color: rgba(255,255,255,0.7);
+}
+
+/* Products */
+.productSection {
+  background-color: var(--color-background);
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+/* Interstitial */
+.interstitial {
+  padding: 10rem 0;
+  background-color: var(--color-primary);
+  color: white;
+  text-align: center;
+}
+
+.interstitialTitle {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  color: white;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.2;
+}
+
+@media (max-width: 1024px) {
+  .productGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .bentoGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .heroTitle {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+}

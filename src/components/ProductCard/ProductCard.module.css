@@ -1,0 +1,122 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  cursor: pointer;
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  padding-top: 125%; /* 4:5 Aspect Ratio for a more editorial look */
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface);
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform var(--transition-slow);
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background-color: #EFEFEF; /* very subtle gray */
+}
+
+.card:hover .imageWrapper {
+  transform: scale(1.05); /* Smooth elegant zoom */
+}
+
+.tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  z-index: 2;
+  background: rgba(255,255,255,0.8);
+  padding: 0.25rem 0.5rem;
+  border-radius: 2px;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all var(--transition-slow);
+}
+
+.card:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.quickAddBtn {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--color-text);
+  backdrop-filter: blur(5px);
+}
+
+.quickAddBtn:hover {
+  background-color: var(--color-text);
+  color: white;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-text);
+  margin-bottom: 0.25rem;
+}
+
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.price {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.oldPrice {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    display: none;
+  }
+}
